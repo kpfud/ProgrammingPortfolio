@@ -1,0 +1,134 @@
+* { box-sizing: border-box; }
+body { background-color: #C88EA7;
+	color: #643843;
+	font-family: Garamond, serif;
+	margin: 0; }
+header { background-color: #99627A;
+	background-image: url(stockvault-passion-for-music211274.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	color: #E7CBCB;
+	font-family: Century Gothic, sans-serif;
+	padding: 1em;
+	text-align: center; }
+header a { text-decoration: none; }
+header a:link { color: #E7CBCB; }
+header a:visited { color: #E7CBCB; }
+header a:hover { color: #C88EA7; }
+h1 { font-size: 2em;
+	padding: 0.2em; }
+h2 { font-size: 1.2em; 
+	font-family: Century Gothic, san-serif; }
+nav { text-align: center; }
+nav ul { list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	font-size: 1.5em; }
+nav li { padding-top: .5em;
+	padding-bottom: .5em;
+	width: 100%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid; }
+nav a { text-decoration: none; }
+nav a:link { color: #99627A; }
+nav a:visited { color: #E7CBCB; }
+nav a:hover { color: #643843; }
+main { background-color: #E7CBCB;
+	border: 1px solid #99627A;
+	display: block;
+	overflow: auto;
+	padding-left: 2em;
+	padding-right: 2em; }
+dt { color: #C88EA7; 
+	font-size: 1.1em;
+	font-family: Century Gothic, sans-serif;
+	font-weight: bold; }
+section { background-color: #99627A;
+	margin-bottom: 1em;
+	margin-right: 1em;
+	margin-top: 1em;
+	padding: 0; 
+	display: flex;
+	flex-direction: column;
+	align-items: center; }
+section h3 { color: #E7CBCB;
+	font-size: 110%;
+	font-family: Century Gothic, sans-serif;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: .25em; }
+section p { color: #C88EA7;
+	max-width: 560px;
+	padding: 0 .25em .25em .25em;
+	margin-left: 1em; 
+	margin-top: 1em; }
+img { width: 400px;
+	height: auto; }
+table { width: 75%;
+	margin: auto;
+	border: 3px solid #643843;
+	padding-bottom: 1em;}
+td, th { padding: .5em;
+	font-family: Garramond, serif; }
+caption { font-family: Century Gothic, sans-serif;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding-bottom: .5em; }
+.altrow {background-color: #C88EA7; }
+@supports (diplay:grid) {}
+form { display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: 6em 1fr;
+	grid-gap: 1em; gap: 1em;
+	width: 60%; min-width: 20em;
+	padding: 1.5em; }
+input[type="submit"] { grid-column 2/3;
+			width: 10em; margin-left: 0; }
+.floatright { float: right;
+		max-width: 20%;
+		padding-left: 1em;
+		padding-right: 1em; }
+.container { display: flex;
+	     flex-wrap: wrap;
+	     flex-direction: row; }
+#mobile { display: inline; }
+#desktop { display: none; }
+footer {background-color: #C88EA7;
+	font-size: .7em;
+	font-style: italic;
+	padding: 1em;
+	text-align: center; }
+@media (min-width: 600px) {
+   h1 { font-size: 3em; }
+   nav ul { flex-wrap: nowrap;
+	justify-content: space-around; }
+   nav li { border-bottom: none; }
+   #flow {flex-direction: row;
+	flex-wrap: wrap; }
+   section { min-width: 30%; 
+	flex: 1; }
+   dl { flex: 2; }
+   img { flex: 1; }
+   section { flex-direction: row; }
+   #mobile { display: none; }
+   #desktop { display: inline; }
+}
+@media (min-width: 1024px) {
+   @supports (display: grid) {
+	header { grid-area: header; }
+	nav { grid-area: nav; }
+	main { grid-area: main; }
+	footer { grid-area: footer; }
+   }
+   #wrapper { display: grid;
+	grid-template:
+	   "header  header"
+	   "nav     main"
+	   "nav     footer"
+	   /180px; }
+   nav ul { flex-direction: column;
+	font-weight: bold;
+	font-size: 1.25em; }
+   section { flex-direction: row; }
