@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Skillful Sounds Academy</title>
+<meta charset="utf-8">
+<link href="finalproject.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+   <header>
+      <h1><a href="home.html">Skillfull Sounds Academy</a></h1>
+   </header>
+   <nav>
+      <ul>
+	 <li><a href="home.html">Home</a></li>
+	 <li><a href="services.html">Services</a></li>
+	 <li><a href="contact.html">Contact</a></li>
+      </ul>
+   </nav>
+   <main>
+    <h2>Contact Skillful Sounds</h2>
+    <div class="container">
+    <p>
+      <form method="post" action="https://webdevbasics.net/scripts/javajam8.php">
+	<label for="myName">Name:</label>
+	<input type="text" name="myName" required>
+	<label for="myEmail">E-mail:</label>
+	<input type="email" name="myEmail" required>
+	<label for="myInstrument">Instrument:</label>
+	<input type="text" name="myInstrument" required>
+	<label for="myLevel">Class Level:</label>
+	<input type="text" name="myLevel" id="level" list="level" required>
+		<datalist id="level">
+			<option value="Beginner" label="Beginner">
+			<option value="Intermediate" label="Intermediate">
+			<option value="Advanced" label="Advanced">
+			<option value="Music Theory" label="Music Theory">
+		</datalist>
+	<label for "myComments">Comments:</label>
+	<textarea name="myComments" id="myComments" rows="2" cols="20" required></textarea>
+	<input id="mySubmit" type="submit" value="Send Now">
+      </form>
+     </p>
+     <img src="musicnote.png" class="floatright" alt="music note" height="1716" width="958">
+     </div>
+   </main>
+   <footer>
+      Copyright &copy; 2023 Skillful Sounds Academy<br>
+      <a href="mailto:katelyn@pfundstein.com">katelyn@pfundstein.com</a>
+</body>
+</html>
