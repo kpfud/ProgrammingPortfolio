@@ -1,0 +1,90 @@
+using System.Drawing.Text;
+
+namespace LetsMakeADeal
+{
+    public partial class Form1 : Form
+    {
+        private int[] prizes;
+        private Button[] doors;
+        private int selectedDoor;
+        private int revealedDoor;
+        string[] youWin = new string[] { "Car", "TV", "Bunch of Bananas" };
+        string currentPrize;
+        
+        public Form1(int[] prizes) 
+        {
+            InitializeComponent();
+            btnYes.Click += BtnYes_Click;
+            btnNo.Click += BtnNo_Click;
+
+            this.prizes = prizes;
+
+            doors = new Button[] { btnDoor1, btnDoor2, btnDoor3 };
+            for (int i = 0; i < doors.Length; i++)
+            {
+                doors[i].Tag = i;
+                doors[i].Click += Door_Click;
+            }
+        }
+
+        private void BtnNo_Click1(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Door_Click(object sender, EventArgs e)
+        {
+            Button clickedDoor = (Button)sender;
+            selectedDoor = (int)clickedDoor.Tag;
+            revealedDoor = FindDoorToReveal(selectedDoor);
+
+            lblMontyHall.Text = $"You chose Door {selectedDoor + 1}\n" +
+                $"Door {revealedDoor + 1} had a {youWin[prizes[revealedDoor]-1]}\n " +
+                "Do you want to switch your selection?";
+        }
+
+        private int FindDoorToReveal(int selectedDoor)
+        {
+            int doorToReveal;
+            int selectedPrize = prizes[selectedDoor];
+            Random random = new Random();
+
+            do
+            {
+                doorToReveal = random.Next(0, 3);
+            } while (doorToReveal == selectedDoor || prizes[doorToReveal] == 1);
+
+            
+            return doorToReveal;
+        }
+
+        private void BtnYes_Click(object sender, EventArgs e)
+        {
+            HandleSwitch(true);
+        }
+
+        private void BtnNo_Click(object sender, EventArgs e)
+        {
+            HandleSwitch(false);
+        }
+
+        private void HandleSwitch(bool switchDoor)
+        {
+            int finalDoor = (switchDoor) ? FindUnselectedDoor(selectedDoor, revealedDoor) : selectedDoor;
+
+            lblPrize.Text = $"You won a {youWin[prizes[finalDoor]-1]}!";
+        }
+
+        private int FindUnselectedDoor(int selectedDoor, int revealedDoor)
+        {
+            for (int i = 0; i < doors.Length; i++)
+            {
+                if (i != selectedDoor && i != revealedDoor)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+    }
+}
