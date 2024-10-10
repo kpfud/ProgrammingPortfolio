@@ -1,0 +1,71 @@
+namespace LetsMakeADeal
+{
+    using System;
+    internal static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            int[] prizes;
+            prizes = AssignPrizes();
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1(prizes));
+        }
+        static int[] AssignPrizes()
+        {
+            /* there will be 3 prizes: a car, a big screen tv, a bunch of bananas
+             * most valuable to least valuable will be assigned 1-3 */
+            int[] assignedPrizes = new int[3];
+
+            int btn1;
+            int btn2;
+
+            Random random = new Random();
+
+            btn1 = random.Next(1, 4);
+            assignedPrizes[0] = btn1;
+
+            btn2 = random.Next(1, 3);
+
+            if (btn1 == 1)
+            { switch (btn2)
+                {
+                    case 1:
+                        assignedPrizes[1] = 2;
+                        assignedPrizes[2] = 3;
+                        break;
+                    case 2:
+                        assignedPrizes[1] = 3;
+                        assignedPrizes[2] = 2;
+                        break;
+                }
+            }else if (btn1 == 2)
+            { switch (btn2)
+                {
+                    case 1:
+                        assignedPrizes[1] = 1;
+                        assignedPrizes[2] = 3;
+                        break;
+                    case 2:
+                        assignedPrizes[1] = 3;
+                        assignedPrizes[2] = 1;
+                        break;
+                }
+            }else if (btn1 == 3)
+            { switch (btn2)
+                {
+                    case 1:
+                        assignedPrizes[1] = 1;
+                        assignedPrizes[2] = 2;
+                        break;
+                    case 2:
+                        assignedPrizes[1] = 2;
+                        assignedPrizes[2] = 1;
+                        break;
+                }
+            }
+            return assignedPrizes;
+
+        }
+    }
+}
