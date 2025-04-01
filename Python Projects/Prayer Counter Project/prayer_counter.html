@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Answered Prayer Counter</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <h1>Current Answered Prayers: {{ prayer_count}}</h1>
+        <h3>New Answered Prayer Count: <span id="new-count">{{ new_count }}</span></h3>
+
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+        <button id="save" data-url="{{ url_for('update_count') }}">Save Changes</button>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
